@@ -15,6 +15,9 @@ const MainHeader = () => {
             <Link href="/category">
                 <li>Category</li>
             </Link>
+            <Link href="/produk">
+                <li>Produk</li>
+            </Link>
         </ul>
     </div>
   )
