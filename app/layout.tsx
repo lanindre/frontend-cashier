@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import MainLayout from '@/components/MainLayout'
+import MenuContextProvider from '@/context/MenuContext'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <MainLayout> {children} </MainLayout>
+      <MenuContextProvider>
+       <MainLayout> {children} </MainLayout>
+      </MenuContextProvider>
       </body>
     </html>
   )

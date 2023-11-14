@@ -24,18 +24,28 @@ const ProdukList = async () => {
     return (
         <div>
             ProdukList
-            <ul>
-            {produk.map((produk, index ) => (
-                    <Link href={`/produk/${produk.id}`} key={produk.id}>
-                        <li>{produk.category_id}</li>
-                        <li>{produk.nama_produk}</li>
-                        <li>{produk.price}</li>
-                        <li>{produk.stok}</li>
-                        <li>{produk.tag}</li>
-                        <li>{produk.image}</li>
-                    </Link>
-                ))}
-            </ul>
+            <table>
+                <thead>
+                    <th>No</th>
+                    <th>Kategori</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                {produk.map((produk, index ) => (
+                    <tr>
+                        
+                    </tr>
+                // <Link href={`/produk/${produk.id}`} key={produk.id}>
+                //     <li>{produk.category_id}</li>
+                //     <li>{produk.nama_produk}</li>
+                //     <li>{produk.price}</li>
+                //     <li>{produk.stok}</li>
+                //     <li>{produk.tag}</li>
+                //     <li>{produk.image}</li>
+                // </Link>
+            ))}
+                </tbody>
+            </table>
         </div>
     )
 }
