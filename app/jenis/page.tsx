@@ -1,48 +1,51 @@
 export const metadata = {
-    title: "Category",
+    title: "Jenis",
   }
   import axios from 'axios'
   import Link from 'next/link'
-  import AddCategory from './add'
-  import DeleteCategory from './delete'
-  import EditCategory from './edit'
+  import AddJenis from './add'
+  import DeleteJenis from './delete'
+  import EditJenis from './edit'
   
-  type Category = {
+  type Jenis = {
     id: number;
     name: string;
+    name_kategori: string;
   }
-  const getCategory = async () => {
-    const res = await axios.get("http://127.0.0.1:8000/api/category");
+  const getJenis = async () => {
+    const res = await axios.get("http://127.0.0.1:8000/api/jenis");
   
     return res.data.data
   }
-  const  CategoryList = async () => {
-    const category: Category[] = await getCategory()
+  const  JenisList = async () => {
+    const jenis: Jenis[] = await getJenis()
     return (
       <div className="py-10 px-10">
-      <h1>Kategori</h1>
+      <h1>Jenis</h1>
         <div className="py-2">
-          <AddCategory />
+          <AddJenis />
         </div>
         <table className="table table-zebra">
           <thead>
             <tr className="bg-base-200">
               <th>No.</th>
-              <th>Nama Kategori</th>
+              <th>Nama Jenis</th>
+              <th>Kategori</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {category && category.map((category, index) => (
-              <tr key={category.id}>
+          {jenis && jenis.map((jenis, index) => (
+              <tr key={jenis.id}>
                 <td>{index + 1}</td>
-                <td>{category.name}</td>
+                <td>{jenis.name}</td>
+                <td>{jenis.name_kategori}</td>
                 <td className="flex">
                   <div className="mr-1">
-                    <EditCategory {...category} />
+                    <EditJenis {...jenis} />
                   </div>
   
-                  <DeleteCategory {...category} />
+                  <DeleteJenis {...jenis} />
                 </td>
               </tr>
             ))}
@@ -52,5 +55,5 @@ export const metadata = {
     );
   };
   
-  export default CategoryList;
+  export default JenisList;
   

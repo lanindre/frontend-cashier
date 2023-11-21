@@ -31,9 +31,39 @@ const MainLayout = ({children} : {children: React.ReactNode}) => {
 
                 <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
                   <BsFillBasket2Fill className="mr-2" />
-                  <a href="/produk">Product</a>
+                  <a href="/jenis">Jenis</a>
                 </li>
 
+                <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
+                  <BsFillBasket2Fill className="mr-2" />
+                  <a href="/menu">Menu</a>
+                </li>
+
+                <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
+                  <BsFillBasket2Fill className="mr-2" />
+                  <a href="/stok">Stok</a>
+                </li>
+
+                <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
+                  <BsFillBasket2Fill className="mr-2" />
+                  <a href="/pelanggan">Pelanggan</a>
+                </li>
+
+                <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
+                  <BsFillBasket2Fill className="mr-2" />
+                  <a href="/meja">Meja</a>
+                </li>
+
+                <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
+                  <BsFillBasket2Fill className="mr-2" />
+                  <a href="/pemesanan">Pemesanan</a>
+                </li>
+
+                <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
+                  <BsFillBasket2Fill className="mr-2" />
+                  <a href="/transaksi">Transaksi</a>
+                </li>
+                
                 <li className="flex justify-start items-center hover:bg-blue-200 hover:text-blue-800 rounded-xl p-2">
                   <SiHelpscout  className="mr-2" />
                      <a href="/about-us">About Us</a>

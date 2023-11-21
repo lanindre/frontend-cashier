@@ -6,19 +6,23 @@ import { useRouter } from "next/navigation";
 
 
 const API_URL = 'http://127.0.0.1:8000/api'
-const AddCategory = () => {
+const AddMeja = () => {
   const [modal, setModal] = useState(false)
-  const [name, setName] = useState("")
+  const [nomor_meja, setNomor_meja] = useState("")
+  const [kapasitas, setKapasitas] = useState("")
+  const [status, setStatus] = useState("")
   const [isMutating, setIsMutating] = useState(false)
   const router = useRouter()
   const handleChange = () => setModal(!modal)
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
     setIsMutating(true)
-    let endpoint = `${API_URL}/category`
-    const data = { name: name }
+    let endpoint = `${API_URL}/meja`
+    const data = { nomor_meja:nomor_meja, kapasitas:kapasitas, status:status }
     await axios.post(endpoint, data);
-    setName('')
+    setNomor_meja("")
+    setKapasitas("")
+    setStatus("")
     setIsMutating(false);
     router.refresh()
     setModal(false)
@@ -36,16 +40,32 @@ const AddCategory = () => {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Add New Category</h3>
+          <h3 className="font-bold text-lg">Add New </h3>
           <form onSubmit={handleSubmit}>
             <div className="form-control">
-              <label className="label font-bold">Name</label>
+              <label className="label font-bold">Nomor Meja</label>
               <input
                 type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={nomor_meja}
+                onChange={(e) => setNomor_meja(e.target.value)}
                 className="input w-full input-bordered"
-                placeholder="Name Category"
+                placeholder="Nomor Meja"
+              />
+              <label className="label font-bold">Kapasitas</label>
+              <input
+                type="text"
+                value={kapasitas}
+                onChange={(e) => setKapasitas(e.target.value)}
+                className="input w-full input-bordered"
+                placeholder="Kapasitas"
+              />
+              <label className="label font-bold">Status</label>
+              <input
+                type="text"
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                className="input w-full input-bordered"
+                placeholder="Status"
               />
             </div>
             <div className="modal-action">
@@ -69,4 +89,4 @@ const AddCategory = () => {
   );
 }
 
-export default AddCategory
+export default AddMeja

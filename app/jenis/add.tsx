@@ -1,24 +1,25 @@
 "use client"
-import React, { SyntheticEvent, use } from 'react'
-import { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 
 
 const API_URL = 'http://127.0.0.1:8000/api'
-const AddCategory = () => {
+const AddJenis = () => {
   const [modal, setModal] = useState(false)
   const [name, setName] = useState("")
+  const [name_kategori, setName_kategori] = useState("")
   const [isMutating, setIsMutating] = useState(false)
   const router = useRouter()
   const handleChange = () => setModal(!modal)
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault()
     setIsMutating(true)
-    let endpoint = `${API_URL}/category`
-    const data = { name: name }
-    await axios.post(endpoint, data);
+    let endpoint = `${API_URL}/jenis`
+    const data = { name: name , name_kategori: name_kategori  }
+    await axios.post(endpoint, data)
     setName('')
+    setName_kategori('')
     setIsMutating(false);
     router.refresh()
     setModal(false)
@@ -36,7 +37,7 @@ const AddCategory = () => {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Add New Category</h3>
+          <h3 className="font-bold text-lg">Add New Jenis</h3>
           <form onSubmit={handleSubmit}>
             <div className="form-control">
               <label className="label font-bold">Name</label>
@@ -45,7 +46,17 @@ const AddCategory = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="input w-full input-bordered"
-                placeholder="Name Category"
+                placeholder="Nama Jenis"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label font-bold">Kategori</label>
+              <input
+                type="text"
+                value={name_kategori}
+                onChange={(e) => setName_kategori(e.target.value)}
+                className="input w-full input-bordered"
+                placeholder="Nama Kategori"
               />
             </div>
             <div className="modal-action">
@@ -69,4 +80,4 @@ const AddCategory = () => {
   );
 }
 
-export default AddCategory
+export default AddJenis
