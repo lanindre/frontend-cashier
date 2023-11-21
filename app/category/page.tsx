@@ -53,4 +53,3 @@ export const metadata = {
   };
   
   export default CategoryList;
-  
